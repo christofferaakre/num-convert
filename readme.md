@@ -1,4 +1,5 @@
 # num-convert
+![Gif showing the utility](videos/demo.gif)
 `num-convert` is a command-line utility written in C that
 quickly and conveniently converts numbers between binary, hexadecimal,
 and decimal formats.
