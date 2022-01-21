@@ -4,7 +4,8 @@ quickly and conveniently converts numbers between binary, hexadecimal,
 and decimal formats.
 
 ## Installation
-If you are on x86\_64 bit GNU Linux, simply grab the newest binary from Releases. Alternatively,
+If you are on x86\_64 bit GNU Linux, simply grab the newest binary from
+[Releases](https://github.com/christofferaakre/num-convert/releases). Alternatively,
 you can follow the instructions below to build from the
 source yourself. Then, you probably want to place the binary in
 a convenient location like your `bin`, or really any directory
