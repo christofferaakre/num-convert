@@ -15,36 +15,45 @@ void print_binary_string(char* buffer, int buffer_size);
 char get_format(char* input);
 int format_number(char* input, char format);
 
-int main(int argc, char* args[])
+void num_convert(char* string)
 {
-    if (argc != 2)
-    {
-        print_usage();
-        return 1;
-    }
-
-    char* input = args[1];
-    char format = get_format(input);
+    char format = get_format(string);
     if (format == '\0')
     {
         printf("Please enter an integer in hex, binary, or decimal, for example:\n");
-        printf("0x033f2\n");
-        printf("1001001b\n");
-        printf("1432\n");
-        printf("Exiting..\n");
-        return 2;
+        return;
     };
 
-    int number = format_number(input, format);
+    int number = format_number(string, format);
     int buffer_size = sizeof(int) * 8 + 1;
     char buffer[buffer_size];
     int_to_binary_string(number, buffer);
 
-    printf("Printing %s with format %c\n", input, format);
-    printf("Decimal: %d\n", number);
-    printf("Hex: %x\n", number);
-    printf("Binary: ");
+    printf("%d ", number);
+    printf("0x%x ", number);
     print_binary_string(buffer, buffer_size);
+    printf("\n");
+}
+
+int main(int argc, char* argv[])
+{
+   if(argc == 1)
+   {
+       while(1)
+       {
+           int buffer_size = 256;
+           char buffer[buffer_size];
+           scanf("%s", buffer);
+           num_convert(buffer);
+       }
+   }
+
+    if(argc > 1) {
+    for(int i = 1; i < argc; i++)
+    {
+        num_convert(argv[i]);
+    }
+    }
 
 }
 
@@ -120,7 +129,7 @@ void print_binary_string(char* buffer, int buffer_size)
             printf("%c", buffer[i]);
         }
     }
-    printf("\n");
+    printf("b");
 }
 
 void int_to_binary_string(int number, char* buffer)
